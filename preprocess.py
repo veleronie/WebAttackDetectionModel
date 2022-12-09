@@ -11,15 +11,6 @@ all_files = os.listdir(path + path_to_datasets)
 csv_files = list(filter(lambda f: f.endswith('.pcap_ISCX.csv'), all_files))
 full_dataset = pd.DataFrame([])
 
-"""
-for i in range(len(csv_files)):
-    with open(path + path_to_datasets + r'/' + csv_files[i], encoding="utf8", errors='ignore') as file:
-        df = pd.read_csv(file)
-        full_dataset = pd.concat([full_dataset, df])
-        print(csv_files[i], '   loaded.')
-full_dataset.to_csv('full_dataset.csv')
-
-"""
 for i in range(len(csv_files)):
     with open(path + path_to_datasets + r'/' + csv_files[i], encoding="utf8", errors='ignore') as file:
         df = pd.read_csv(file, low_memory=False)
